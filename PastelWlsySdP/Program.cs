@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
+using PastelWlsySdP.Apresentacao;
+
 namespace PastelWlsySdP
 {
     static class Program
@@ -15,7 +17,7 @@ namespace PastelWlsySdP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormConfigBD());
         }
     }
 }

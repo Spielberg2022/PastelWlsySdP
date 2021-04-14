@@ -117,17 +117,80 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="abstrato" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abstrato.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pastel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pastel1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="abstrato1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\abstrato1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cadastro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cadastro.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="codigoLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="nomeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="identificadorLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="senhaLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="situacaoLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="tipoLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="fotoLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="ufLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="cepLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="cidadeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="bairroLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="logradouroLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="emailLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="celLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="telLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="dt_nascimentoLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="sqlConnection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHTIonilGOscpRjrHMFREwDBURMAwVETAKUY6xylG
+        OscdMiieAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACtJPMBfpof/X6aH/3/dtP89bmP/NF9e/02H
+        bv9fpof/K0k8wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnRDi8aLST/2i0k/9/3bT/PW5j/zRf
+        Xv9Uknf/aLST/yZCNr0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGSohkW/Bnvx92bD/SYBn8kZ5
+        Y/9JgGfyfdmw/2/BnvwWJyGVHTIonilGOscpRjrHMFREwDBURMAwVETAKUY6xyRAM8wQGxblKko85x45
+        LvUgKSvuHjku9SpKPOcdMymwAAAACStJPMBfpof/X6aH/3/dtP89bmP/NF9e/02Hbv9fpof/K0k8wAAA
+        ABMZHSHQTFhl4BkcIc8AAAATAAAAAAAAAAAmQja9aLST/2i0k/9/3bT/PW5j/zRfXv9Uknf/aLST/yZC
+        Nr0UFhp0anqN+FVicf9qeY32EBIUcwAAAAEAAAAAFichlW/Bnvx92bD/SYBn8kZ5Y/9JgGfyfdmw/2/B
+        nvwHCQnoKzI67qW+2/+zz+//pb7b/ysxOe8eIiZ5AAAAAAAAAAocMSmwKko85x45LvUgKSvuHjku9SpK
+        POcdMymvDxYeihkgJ+6jvNn/orzY/36SqfwcJS3sEhohggAAAAAAAAAAAAAAAAAAADoWGR3VTFhl4BYZ
+        HdUAAAA6AAAAAA0XI4U3XIj8GyMq7BwsPPM1WH73P2yf/w4XIYMAAAAAAAAAABUVE3snJSTvanqN+FVi
+        cf9peY34JyQk7xUVE3sAAAAWFyY41xgrP+guT3X/IjpW/xcmONUAAAATAAAAAAAAAAAYFROgQEBB56W+
+        2/+zz+//pb7b/0BAQecYFROgAAAAAAAAABAMFR+EEx8uvQsUG3MAAAAPAAAAAAAAAAAAAAAAGBUVnUJC
+        Q+ihu9j/jKK7/15tffRRTUrwGBUVnQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMR
+        EWpWTkn7JCcr7U9JRfdiWVP/ZFtU/hEREWcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAIIx8czl5VT/9YUEr/cGZe/yMfHc0AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAABAcGRebJSMguBoZF5sAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA/gAAAP4AAAD+AAAA/gAAAAAAAAAAAwAAAAEAAAABAAAAAQAAwQEAAIABAACAgwAAgP8AAID/
+        AACA/wAAwf8AAA==
+</value>
   </data>
 </root>

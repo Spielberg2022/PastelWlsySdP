@@ -44,8 +44,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacao\ClassChavesWin_Apl.cs" />
+    <Compile Include="Aplicacao\ClassConfigBD_Apl.cs" />
+    <Compile Include="Aplicacao\ClassPastelWslyS_Apl.cs" />
+    <Compile Include="Aplicacao\ClassUsuario_Apl.cs" />
+    <Compile Include="Apresentacao\FormCadUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\FormCadUsuario.designer.cs">
+      <DependentUpon>FormCadUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\FormConfigBD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\FormConfigBD.designer.cs">
+      <DependentUpon>FormConfigBD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\FormLocalizarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\FormLocalizarUsuario.designer.cs">
+      <DependentUpon>FormLocalizarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\MDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\MDIParent.designer.cs">
+      <DependentUpon>MDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dominio\ClassChavesWin_Dom.cs" />
+    <Compile Include="Dominio\ClassConfigBD_Dom.cs" />
+    <Compile Include="Dominio\ClassPastelWslyS_Dom.cs" />
+    <Compile Include="Dominio\ClassUsuario_Dom.cs" />
+    <Compile Include="Persistencia\ClassChavesWin_Per.cs" />
+    <Compile Include="Persistencia\ClassConfigBD_Per.cs" />
+    <Compile Include="Persistencia\ClassPastelWslyS_Per.cs" />
+    <Compile Include="Persistencia\ClassUsuario_Per.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuariosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Apresentacao\FormCadUsuario.resx">
+      <DependentUpon>FormCadUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\FormConfigBD.resx">
+      <DependentUpon>FormConfigBD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\FormLocalizarUsuario.resx">
+      <DependentUpon>FormLocalizarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\MDIParent.resx">
+      <DependentUpon>MDIParent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -54,7 +107,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -64,12 +119,29 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="UsuariosDataSet.xsc">
+      <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UsuariosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UsuariosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UsuariosDataSet.xss">
+      <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplicacao\" />
-    <Folder Include="Apresentacao\" />
-    <Folder Include="Dominio\" />
-    <Folder Include="Persistencia\" />
+    <None Include="Resources\Cadastro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pastel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstrato.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstrato1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
