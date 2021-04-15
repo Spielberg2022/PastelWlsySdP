@@ -48,7 +48,7 @@ namespace PastelWlsySdP.Apresentacao
 
             if (primeiroAcesso)
             {
-                loginLabel.Text = "Cadastro Admin. GERAL";
+                loginLabel.Text = "Cadastro do Administrador GERAL";
                 altSenhaCheckBox.Enabled = false;
                 situacaoComboBox.Enabled = false;
                 autenticacaoCheckBox.Enabled = false;

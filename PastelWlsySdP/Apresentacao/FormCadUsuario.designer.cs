@@ -151,7 +151,7 @@ namespace PastelWlsySdP.Apresentacao
             // dt_nascimentoLabel
             // 
             dt_nascimentoLabel.AutoSize = true;
-            dt_nascimentoLabel.Location = new System.Drawing.Point(12, 83);
+            dt_nascimentoLabel.Location = new System.Drawing.Point(12, 80);
             dt_nascimentoLabel.Name = "dt_nascimentoLabel";
             dt_nascimentoLabel.Size = new System.Drawing.Size(66, 13);
             dt_nascimentoLabel.TabIndex = 4;
