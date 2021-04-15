@@ -5,7 +5,7 @@ using Microsoft.Win32;
 
 using PastelWlsySdP.Dominio;
 using PastelWlsySdP.Aplicacao;
-using PastelWlsySdP.Persistencia;
+
 
 namespace PastelWlsySdP.Apresentacao
 {
@@ -15,11 +15,7 @@ namespace PastelWlsySdP.Apresentacao
 
 		ClassChavesWin_Apl chavesWin_Apl = new ClassChavesWin_Apl();
 		ClassConfigBD_Apl configBD_Apl = new ClassConfigBD_Apl();
-		ClassUsuario_Apl usuario_Apl = new ClassUsuario_Apl();
 		ClassPastelWslyS_Apl gestor_Apl = new ClassPastelWslyS_Apl();
-		ClassChavesWin_Per chavesWin_Per = new ClassChavesWin_Per();
-        ClassConfigBD_Per configBD_Per = new ClassConfigBD_Per();
-		ClassPastelWslyS_Per gestor_Per = new ClassPastelWslyS_Per();
 		ClassChavesWin_Dom chavesWin_Dom = new ClassChavesWin_Dom();
         ClassConfigBD_Dom bd = new ClassConfigBD_Dom();
 		ClassPastelWslyS_Dom gestor_Dom = new ClassPastelWslyS_Dom();
@@ -47,7 +43,7 @@ namespace PastelWlsySdP.Apresentacao
 
 				if (!configBD_Apl.Conectar(bd))
 				{
-					MessageBox.Show("Erro ao tentar conectar com o banco de dados. Entre em contato com o suporte.\n\n" + configBD_Per.erro,
+					MessageBox.Show("Erro ao tentar conectar com o banco de dados. Entre em contato com o suporte.\n\n" + configBD_Apl.erro,
 											"Erro",
 											  MessageBoxButtons.OK,
 											 MessageBoxIcon.Error);
@@ -157,7 +153,7 @@ namespace PastelWlsySdP.Apresentacao
 						bd_comboBox.DataSource = configBD_Apl.pegaBDs();
 					else
 					{
-						MessageBox.Show("Usuário do Windows sem permissão de entrada.\n\n" + configBD_Per.erro,
+						MessageBox.Show("Usuário do Windows sem permissão de entrada.\n\n" + configBD_Apl.erro,
 										"Atenção: ",
 										  MessageBoxButtons.OK,
 										 MessageBoxIcon.Exclamation);
@@ -172,7 +168,7 @@ namespace PastelWlsySdP.Apresentacao
 							bd_comboBox.DataSource = configBD_Apl.pegaBDs();
 						else
 						{
-							MessageBox.Show("Erro ao logar com autenticação SQL, usuário e senhas incorretos.\n\n" + configBD_Per.erro,
+							MessageBox.Show("Erro ao logar com autenticação SQL, usuário e senhas incorretos.\n\n" + configBD_Apl.erro,
 										"Erro",
 										  MessageBoxButtons.OK,
 										 MessageBoxIcon.Error);
@@ -230,7 +226,7 @@ namespace PastelWlsySdP.Apresentacao
 			{
 				if (!configBD_Apl.Conectar(bd))
 				{
-					MessageBox.Show("Erro ao tentar conectar com o banco de dados.\n\n" + configBD_Per.erro,
+					MessageBox.Show("Erro ao tentar conectar com o banco de dados.\n\n" + configBD_Apl.erro,
 											"Erro",
 											  MessageBoxButtons.OK,
 											 MessageBoxIcon.Error);

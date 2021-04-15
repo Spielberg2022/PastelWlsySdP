@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>PastelWlsySdP</RootNamespace>
     <AssemblyName>PastelWlsySdP</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,8 +32,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Correios.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Correios.CEP.Net.1.1.6\lib\Correios.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacao\ClassCEP_Apl.cs" />
     <Compile Include="Aplicacao\ClassChavesWin_Apl.cs" />
     <Compile Include="Aplicacao\ClassConfigBD_Apl.cs" />
     <Compile Include="Aplicacao\ClassPastelWslyS_Apl.cs" />
@@ -72,10 +79,12 @@
     <Compile Include="Apresentacao\MDIParent.designer.cs">
       <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\ClassCEP_Dom.cs" />
     <Compile Include="Dominio\ClassChavesWin_Dom.cs" />
     <Compile Include="Dominio\ClassConfigBD_Dom.cs" />
     <Compile Include="Dominio\ClassPastelWslyS_Dom.cs" />
     <Compile Include="Dominio\ClassUsuario_Dom.cs" />
+    <Compile Include="Persistencia\ClassCEP_Per.cs" />
     <Compile Include="Persistencia\ClassChavesWin_Per.cs" />
     <Compile Include="Persistencia\ClassConfigBD_Per.cs" />
     <Compile Include="Persistencia\ClassPastelWslyS_Per.cs" />
@@ -110,6 +119,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

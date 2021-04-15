@@ -6,12 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web;
+
+using PastelWlsySdP.Dominio;
+using PastelWlsySdP.Aplicacao;
 
 namespace PastelWlsySdP.Apresentacao
 {
     public partial class FormCadUsuario : Form
     {
         public bool primeiroAcesso = false;
+        private ClassCEP_Apl codigoPostal = new ClassCEP_Apl();
+
         public FormCadUsuario()
         {
             InitializeComponent();
@@ -28,9 +38,9 @@ namespace PastelWlsySdP.Apresentacao
         private void FormCadUsuario_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'usuariosDataSet.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuariosTableAdapter.Fill(this.usuariosDataSet.Usuarios);
+            //this.usuariosTableAdapter.Fill(this.usuariosDataSet.Usuarios);
             // TODO: esta linha de código carrega dados na tabela 'usuariosDataSet.Usuarios'. Você pode movê-la ou removê-la conforme necessário.
-            this.usuariosTableAdapter.Fill(this.usuariosDataSet.Usuarios);
+            //this.usuariosTableAdapter.Fill(this.usuariosDataSet.Usuarios);
             // TODO: esta linha de código carrega dados na tabela 'gestorWslyDataSet.Usuario'. Você pode movê-la ou removê-la conforme necessário.
             //this.usuarioTableAdapter.Fill(this.gestorWslyDataSet.Usuario);
             // TODO: esta linha de código carrega dados na tabela 'gestorWslyDataSet.Usuario'. Você pode movê-la ou removê-la conforme necessário.
@@ -186,18 +196,33 @@ namespace PastelWlsySdP.Apresentacao
 
         private void usuariosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.usuariosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.usuariosDataSet);
+            //this.Validate();
+            //this.usuariosBindingSource.EndEdit();
+            //this.tableAdapterManager.UpdateAll(this.usuariosDataSet);
 
         }
 
         private void usuariosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
-            this.Validate();
-            this.usuariosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.usuariosDataSet);
+            //this.Validate();
+            //this.usuariosBindingSource.EndEdit();
+            //this.tableAdapterManager.UpdateAll(this.usuariosDataSet);
 
+        }
+
+        private void cepMaskedTextBox_Leave(object sender, EventArgs e)
+        {
+            codigoPostal = new ClassCEP_Apl();
+            codigoPostal.BuscaCEP(cepMaskedTextBox.Text);
+            logradouroTextBox.Text = codigoPostal.cep_Dom.Logradouro;
+            bairroTextBox.Text = codigoPostal.cep_Dom.Bairro;
+            cidadeTextBox.Text = codigoPostal.cep_Dom.Localidade;
+            ufComboBox.Text = codigoPostal.cep_Dom.Uf;
+        }
+
+        private void LocalizarCEP()
+        {
+            
         }
     }
 }

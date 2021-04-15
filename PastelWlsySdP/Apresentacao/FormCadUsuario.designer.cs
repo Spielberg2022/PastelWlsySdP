@@ -47,6 +47,16 @@ namespace PastelWlsySdP.Apresentacao
             System.Windows.Forms.Label fotoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadUsuario));
             this.usuariosGroupBox = new System.Windows.Forms.GroupBox();
+            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
+            this.ufComboBox = new System.Windows.Forms.ComboBox();
+            this.cepMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.cidadeTextBox = new System.Windows.Forms.TextBox();
+            this.bairroTextBox = new System.Windows.Forms.TextBox();
+            this.logradouroTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.celMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.telMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.dt_nascimentoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tipoComboBox = new System.Windows.Forms.ComboBox();
             this.altSenhaCheckBox = new System.Windows.Forms.CheckBox();
             this.situacaoComboBox = new System.Windows.Forms.ComboBox();
@@ -63,16 +73,6 @@ namespace PastelWlsySdP.Apresentacao
             this.salvarButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
-            this.dt_nascimentoDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.telMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.celMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.logradouroTextBox = new System.Windows.Forms.TextBox();
-            this.bairroTextBox = new System.Windows.Forms.TextBox();
-            this.cidadeTextBox = new System.Windows.Forms.TextBox();
-            this.cepMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.ufComboBox = new System.Windows.Forms.ComboBox();
-            this.fotoPictureBox = new System.Windows.Forms.PictureBox();
             codigoLabel = new System.Windows.Forms.Label();
             nomeLabel = new System.Windows.Forms.Label();
             identificadorLabel = new System.Windows.Forms.Label();
@@ -90,8 +90,8 @@ namespace PastelWlsySdP.Apresentacao
             ufLabel = new System.Windows.Forms.Label();
             fotoLabel = new System.Windows.Forms.Label();
             this.usuariosGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // codigoLabel
@@ -148,6 +148,96 @@ namespace PastelWlsySdP.Apresentacao
             tipoLabel.TabIndex = 27;
             tipoLabel.Text = "Tipo:";
             // 
+            // dt_nascimentoLabel
+            // 
+            dt_nascimentoLabel.AutoSize = true;
+            dt_nascimentoLabel.Location = new System.Drawing.Point(12, 83);
+            dt_nascimentoLabel.Name = "dt_nascimentoLabel";
+            dt_nascimentoLabel.Size = new System.Drawing.Size(66, 13);
+            dt_nascimentoLabel.TabIndex = 4;
+            dt_nascimentoLabel.Text = "Nascimento:";
+            // 
+            // telLabel
+            // 
+            telLabel.AutoSize = true;
+            telLabel.Location = new System.Drawing.Point(12, 106);
+            telLabel.Name = "telLabel";
+            telLabel.Size = new System.Drawing.Size(52, 13);
+            telLabel.TabIndex = 6;
+            telLabel.Text = "Telefone:";
+            // 
+            // celLabel
+            // 
+            celLabel.AutoSize = true;
+            celLabel.Location = new System.Drawing.Point(196, 106);
+            celLabel.Name = "celLabel";
+            celLabel.Size = new System.Drawing.Size(42, 13);
+            celLabel.TabIndex = 8;
+            celLabel.Text = "Celular:";
+            // 
+            // emailLabel
+            // 
+            emailLabel.AutoSize = true;
+            emailLabel.Location = new System.Drawing.Point(12, 132);
+            emailLabel.Name = "emailLabel";
+            emailLabel.Size = new System.Drawing.Size(38, 13);
+            emailLabel.TabIndex = 10;
+            emailLabel.Text = "E-mail:";
+            // 
+            // logradouroLabel
+            // 
+            logradouroLabel.AutoSize = true;
+            logradouroLabel.Location = new System.Drawing.Point(196, 158);
+            logradouroLabel.Name = "logradouroLabel";
+            logradouroLabel.Size = new System.Drawing.Size(64, 13);
+            logradouroLabel.TabIndex = 14;
+            logradouroLabel.Text = "Logradouro:";
+            // 
+            // bairroLabel
+            // 
+            bairroLabel.AutoSize = true;
+            bairroLabel.Location = new System.Drawing.Point(12, 183);
+            bairroLabel.Name = "bairroLabel";
+            bairroLabel.Size = new System.Drawing.Size(37, 13);
+            bairroLabel.TabIndex = 16;
+            bairroLabel.Text = "Bairro:";
+            // 
+            // cidadeLabel
+            // 
+            cidadeLabel.AutoSize = true;
+            cidadeLabel.Location = new System.Drawing.Point(319, 184);
+            cidadeLabel.Name = "cidadeLabel";
+            cidadeLabel.Size = new System.Drawing.Size(43, 13);
+            cidadeLabel.TabIndex = 18;
+            cidadeLabel.Text = "Cidade:";
+            // 
+            // cepLabel
+            // 
+            cepLabel.AutoSize = true;
+            cepLabel.Location = new System.Drawing.Point(12, 158);
+            cepLabel.Name = "cepLabel";
+            cepLabel.Size = new System.Drawing.Size(31, 13);
+            cepLabel.TabIndex = 12;
+            cepLabel.Text = "CEP:";
+            // 
+            // ufLabel
+            // 
+            ufLabel.AutoSize = true;
+            ufLabel.Location = new System.Drawing.Point(539, 183);
+            ufLabel.Name = "ufLabel";
+            ufLabel.Size = new System.Drawing.Size(24, 13);
+            ufLabel.TabIndex = 20;
+            ufLabel.Text = "UF:";
+            // 
+            // fotoLabel
+            // 
+            fotoLabel.AutoSize = true;
+            fotoLabel.Location = new System.Drawing.Point(486, 216);
+            fotoLabel.Name = "fotoLabel";
+            fotoLabel.Size = new System.Drawing.Size(31, 13);
+            fotoLabel.TabIndex = 32;
+            fotoLabel.Text = "Foto:";
+            // 
             // usuariosGroupBox
             // 
             this.usuariosGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -192,6 +282,84 @@ namespace PastelWlsySdP.Apresentacao
             this.usuariosGroupBox.TabIndex = 2;
             this.usuariosGroupBox.TabStop = false;
             this.usuariosGroupBox.Text = "Usuário:";
+            // 
+            // fotoPictureBox
+            // 
+            this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.fotoPictureBox.Location = new System.Drawing.Point(520, 216);
+            this.fotoPictureBox.Name = "fotoPictureBox";
+            this.fotoPictureBox.Size = new System.Drawing.Size(100, 133);
+            this.fotoPictureBox.TabIndex = 33;
+            this.fotoPictureBox.TabStop = false;
+            // 
+            // ufComboBox
+            // 
+            this.ufComboBox.FormattingEnabled = true;
+            this.ufComboBox.Location = new System.Drawing.Point(564, 180);
+            this.ufComboBox.Name = "ufComboBox";
+            this.ufComboBox.Size = new System.Drawing.Size(56, 21);
+            this.ufComboBox.TabIndex = 21;
+            // 
+            // cepMaskedTextBox
+            // 
+            this.cepMaskedTextBox.Location = new System.Drawing.Point(90, 155);
+            this.cepMaskedTextBox.Mask = "99,999-000";
+            this.cepMaskedTextBox.Name = "cepMaskedTextBox";
+            this.cepMaskedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.cepMaskedTextBox.TabIndex = 13;
+            this.cepMaskedTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.cepMaskedTextBox.Leave += new System.EventHandler(this.cepMaskedTextBox_Leave);
+            // 
+            // cidadeTextBox
+            // 
+            this.cidadeTextBox.Location = new System.Drawing.Point(367, 181);
+            this.cidadeTextBox.Name = "cidadeTextBox";
+            this.cidadeTextBox.Size = new System.Drawing.Size(163, 20);
+            this.cidadeTextBox.TabIndex = 19;
+            // 
+            // bairroTextBox
+            // 
+            this.bairroTextBox.Location = new System.Drawing.Point(90, 181);
+            this.bairroTextBox.Name = "bairroTextBox";
+            this.bairroTextBox.Size = new System.Drawing.Size(219, 20);
+            this.bairroTextBox.TabIndex = 17;
+            // 
+            // logradouroTextBox
+            // 
+            this.logradouroTextBox.Location = new System.Drawing.Point(266, 155);
+            this.logradouroTextBox.Name = "logradouroTextBox";
+            this.logradouroTextBox.Size = new System.Drawing.Size(354, 20);
+            this.logradouroTextBox.TabIndex = 15;
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(90, 129);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(530, 20);
+            this.emailTextBox.TabIndex = 11;
+            // 
+            // celMaskedTextBox
+            // 
+            this.celMaskedTextBox.Location = new System.Drawing.Point(244, 103);
+            this.celMaskedTextBox.Mask = "(99) 9 9999-9999";
+            this.celMaskedTextBox.Name = "celMaskedTextBox";
+            this.celMaskedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.celMaskedTextBox.TabIndex = 9;
+            // 
+            // telMaskedTextBox
+            // 
+            this.telMaskedTextBox.Location = new System.Drawing.Point(90, 103);
+            this.telMaskedTextBox.Mask = "(99) 9999-9999";
+            this.telMaskedTextBox.Name = "telMaskedTextBox";
+            this.telMaskedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.telMaskedTextBox.TabIndex = 7;
+            // 
+            // dt_nascimentoDateTimePicker
+            // 
+            this.dt_nascimentoDateTimePicker.Location = new System.Drawing.Point(90, 77);
+            this.dt_nascimentoDateTimePicker.Name = "dt_nascimentoDateTimePicker";
+            this.dt_nascimentoDateTimePicker.Size = new System.Drawing.Size(254, 20);
+            this.dt_nascimentoDateTimePicker.TabIndex = 5;
             // 
             // tipoComboBox
             // 
@@ -358,169 +526,6 @@ namespace PastelWlsySdP.Apresentacao
             // 
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
-            // dt_nascimentoLabel
-            // 
-            dt_nascimentoLabel.AutoSize = true;
-            dt_nascimentoLabel.Location = new System.Drawing.Point(12, 83);
-            dt_nascimentoLabel.Name = "dt_nascimentoLabel";
-            dt_nascimentoLabel.Size = new System.Drawing.Size(66, 13);
-            dt_nascimentoLabel.TabIndex = 4;
-            dt_nascimentoLabel.Text = "Nascimento:";
-            // 
-            // dt_nascimentoDateTimePicker
-            // 
-            this.dt_nascimentoDateTimePicker.Location = new System.Drawing.Point(90, 77);
-            this.dt_nascimentoDateTimePicker.Name = "dt_nascimentoDateTimePicker";
-            this.dt_nascimentoDateTimePicker.Size = new System.Drawing.Size(254, 20);
-            this.dt_nascimentoDateTimePicker.TabIndex = 5;
-            // 
-            // telLabel
-            // 
-            telLabel.AutoSize = true;
-            telLabel.Location = new System.Drawing.Point(12, 106);
-            telLabel.Name = "telLabel";
-            telLabel.Size = new System.Drawing.Size(52, 13);
-            telLabel.TabIndex = 6;
-            telLabel.Text = "Telefone:";
-            // 
-            // telMaskedTextBox
-            // 
-            this.telMaskedTextBox.Location = new System.Drawing.Point(90, 103);
-            this.telMaskedTextBox.Name = "telMaskedTextBox";
-            this.telMaskedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.telMaskedTextBox.TabIndex = 7;
-            // 
-            // celLabel
-            // 
-            celLabel.AutoSize = true;
-            celLabel.Location = new System.Drawing.Point(196, 106);
-            celLabel.Name = "celLabel";
-            celLabel.Size = new System.Drawing.Size(42, 13);
-            celLabel.TabIndex = 8;
-            celLabel.Text = "Celular:";
-            // 
-            // celMaskedTextBox
-            // 
-            this.celMaskedTextBox.Location = new System.Drawing.Point(244, 103);
-            this.celMaskedTextBox.Name = "celMaskedTextBox";
-            this.celMaskedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.celMaskedTextBox.TabIndex = 9;
-            // 
-            // emailLabel
-            // 
-            emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(12, 132);
-            emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(38, 13);
-            emailLabel.TabIndex = 10;
-            emailLabel.Text = "E-mail:";
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(90, 129);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(530, 20);
-            this.emailTextBox.TabIndex = 11;
-            // 
-            // logradouroLabel
-            // 
-            logradouroLabel.AutoSize = true;
-            logradouroLabel.Location = new System.Drawing.Point(196, 158);
-            logradouroLabel.Name = "logradouroLabel";
-            logradouroLabel.Size = new System.Drawing.Size(64, 13);
-            logradouroLabel.TabIndex = 14;
-            logradouroLabel.Text = "Logradouro:";
-            // 
-            // logradouroTextBox
-            // 
-            this.logradouroTextBox.Location = new System.Drawing.Point(266, 155);
-            this.logradouroTextBox.Name = "logradouroTextBox";
-            this.logradouroTextBox.Size = new System.Drawing.Size(354, 20);
-            this.logradouroTextBox.TabIndex = 15;
-            // 
-            // bairroLabel
-            // 
-            bairroLabel.AutoSize = true;
-            bairroLabel.Location = new System.Drawing.Point(12, 183);
-            bairroLabel.Name = "bairroLabel";
-            bairroLabel.Size = new System.Drawing.Size(37, 13);
-            bairroLabel.TabIndex = 16;
-            bairroLabel.Text = "Bairro:";
-            // 
-            // bairroTextBox
-            // 
-            this.bairroTextBox.Location = new System.Drawing.Point(90, 181);
-            this.bairroTextBox.Name = "bairroTextBox";
-            this.bairroTextBox.Size = new System.Drawing.Size(219, 20);
-            this.bairroTextBox.TabIndex = 17;
-            // 
-            // cidadeLabel
-            // 
-            cidadeLabel.AutoSize = true;
-            cidadeLabel.Location = new System.Drawing.Point(319, 184);
-            cidadeLabel.Name = "cidadeLabel";
-            cidadeLabel.Size = new System.Drawing.Size(43, 13);
-            cidadeLabel.TabIndex = 18;
-            cidadeLabel.Text = "Cidade:";
-            // 
-            // cidadeTextBox
-            // 
-            this.cidadeTextBox.Location = new System.Drawing.Point(367, 181);
-            this.cidadeTextBox.Name = "cidadeTextBox";
-            this.cidadeTextBox.Size = new System.Drawing.Size(163, 20);
-            this.cidadeTextBox.TabIndex = 19;
-            // 
-            // cepLabel
-            // 
-            cepLabel.AutoSize = true;
-            cepLabel.Location = new System.Drawing.Point(12, 158);
-            cepLabel.Name = "cepLabel";
-            cepLabel.Size = new System.Drawing.Size(31, 13);
-            cepLabel.TabIndex = 12;
-            cepLabel.Text = "CEP:";
-            // 
-            // cepMaskedTextBox
-            // 
-            this.cepMaskedTextBox.Location = new System.Drawing.Point(90, 155);
-            this.cepMaskedTextBox.Name = "cepMaskedTextBox";
-            this.cepMaskedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.cepMaskedTextBox.TabIndex = 13;
-            // 
-            // ufLabel
-            // 
-            ufLabel.AutoSize = true;
-            ufLabel.Location = new System.Drawing.Point(539, 183);
-            ufLabel.Name = "ufLabel";
-            ufLabel.Size = new System.Drawing.Size(24, 13);
-            ufLabel.TabIndex = 20;
-            ufLabel.Text = "UF:";
-            // 
-            // ufComboBox
-            // 
-            this.ufComboBox.FormattingEnabled = true;
-            this.ufComboBox.Location = new System.Drawing.Point(564, 180);
-            this.ufComboBox.Name = "ufComboBox";
-            this.ufComboBox.Size = new System.Drawing.Size(56, 21);
-            this.ufComboBox.TabIndex = 21;
-            // 
-            // fotoLabel
-            // 
-            fotoLabel.AutoSize = true;
-            fotoLabel.Location = new System.Drawing.Point(486, 216);
-            fotoLabel.Name = "fotoLabel";
-            fotoLabel.Size = new System.Drawing.Size(31, 13);
-            fotoLabel.TabIndex = 32;
-            fotoLabel.Text = "Foto:";
-            // 
-            // fotoPictureBox
-            // 
-            this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.fotoPictureBox.Location = new System.Drawing.Point(520, 216);
-            this.fotoPictureBox.Name = "fotoPictureBox";
-            this.fotoPictureBox.Size = new System.Drawing.Size(100, 133);
-            this.fotoPictureBox.TabIndex = 33;
-            this.fotoPictureBox.TabStop = false;
-            // 
             // FormCadUsuario
             // 
             this.AcceptButton = this.localizarButton;
@@ -542,8 +547,8 @@ namespace PastelWlsySdP.Apresentacao
             this.Load += new System.EventHandler(this.FormCadUsuario_Load);
             this.usuariosGroupBox.ResumeLayout(false);
             this.usuariosGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
