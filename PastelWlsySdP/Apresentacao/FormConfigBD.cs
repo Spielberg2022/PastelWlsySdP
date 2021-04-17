@@ -90,7 +90,10 @@ namespace PastelWlsySdP.Apresentacao
 				cadUsuario.primeiroAcesso = true;
 				this.Hide();
 				cadUsuario.ShowDialog();
-            }
+				MDIParent mDIParent = new MDIParent();
+				mDIParent.sqlConnection = connection;
+				mDIParent.Show();
+			}
 		}
 
         void Limpa()

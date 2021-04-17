@@ -73,6 +73,7 @@ namespace PastelWlsySdP.Apresentacao
             this.salvarButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             codigoLabel = new System.Windows.Forms.Label();
             nomeLabel = new System.Windows.Forms.Label();
             identificadorLabel = new System.Windows.Forms.Label();
@@ -222,8 +223,9 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // ufLabel
             // 
+            ufLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             ufLabel.AutoSize = true;
-            ufLabel.Location = new System.Drawing.Point(539, 183);
+            ufLabel.Location = new System.Drawing.Point(523, 183);
             ufLabel.Name = "ufLabel";
             ufLabel.Size = new System.Drawing.Size(24, 13);
             ufLabel.TabIndex = 20;
@@ -231,8 +233,9 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // fotoLabel
             // 
+            fotoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             fotoLabel.AutoSize = true;
-            fotoLabel.Location = new System.Drawing.Point(486, 216);
+            fotoLabel.Location = new System.Drawing.Point(470, 216);
             fotoLabel.Name = "fotoLabel";
             fotoLabel.Size = new System.Drawing.Size(31, 13);
             fotoLabel.TabIndex = 32;
@@ -278,30 +281,37 @@ namespace PastelWlsySdP.Apresentacao
             this.usuariosGroupBox.Controls.Add(this.autenticacaoCheckBox);
             this.usuariosGroupBox.Location = new System.Drawing.Point(143, 79);
             this.usuariosGroupBox.Name = "usuariosGroupBox";
-            this.usuariosGroupBox.Size = new System.Drawing.Size(634, 357);
+            this.usuariosGroupBox.Size = new System.Drawing.Size(618, 357);
             this.usuariosGroupBox.TabIndex = 2;
             this.usuariosGroupBox.TabStop = false;
             this.usuariosGroupBox.Text = "Usuário:";
             // 
             // fotoPictureBox
             // 
+            this.fotoPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fotoPictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.fotoPictureBox.Location = new System.Drawing.Point(520, 216);
+            this.fotoPictureBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.fotoPictureBox.Location = new System.Drawing.Point(504, 216);
             this.fotoPictureBox.Name = "fotoPictureBox";
             this.fotoPictureBox.Size = new System.Drawing.Size(100, 133);
+            this.fotoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.fotoPictureBox.TabIndex = 33;
             this.fotoPictureBox.TabStop = false;
+            this.fotoPictureBox.Click += new System.EventHandler(this.fotoPictureBox_Click);
             // 
             // ufComboBox
             // 
+            this.ufComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ufComboBox.Enabled = false;
             this.ufComboBox.FormattingEnabled = true;
-            this.ufComboBox.Location = new System.Drawing.Point(564, 180);
+            this.ufComboBox.Location = new System.Drawing.Point(548, 180);
             this.ufComboBox.Name = "ufComboBox";
             this.ufComboBox.Size = new System.Drawing.Size(56, 21);
             this.ufComboBox.TabIndex = 21;
             // 
             // cepMaskedTextBox
             // 
+            this.cepMaskedTextBox.Enabled = false;
             this.cepMaskedTextBox.Location = new System.Drawing.Point(90, 155);
             this.cepMaskedTextBox.Mask = "99,999-000";
             this.cepMaskedTextBox.Name = "cepMaskedTextBox";
@@ -312,13 +322,17 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // cidadeTextBox
             // 
+            this.cidadeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cidadeTextBox.Enabled = false;
             this.cidadeTextBox.Location = new System.Drawing.Point(367, 181);
             this.cidadeTextBox.Name = "cidadeTextBox";
-            this.cidadeTextBox.Size = new System.Drawing.Size(163, 20);
+            this.cidadeTextBox.Size = new System.Drawing.Size(147, 20);
             this.cidadeTextBox.TabIndex = 19;
             // 
             // bairroTextBox
             // 
+            this.bairroTextBox.Enabled = false;
             this.bairroTextBox.Location = new System.Drawing.Point(90, 181);
             this.bairroTextBox.Name = "bairroTextBox";
             this.bairroTextBox.Size = new System.Drawing.Size(219, 20);
@@ -326,36 +340,47 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // logradouroTextBox
             // 
+            this.logradouroTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logradouroTextBox.Enabled = false;
             this.logradouroTextBox.Location = new System.Drawing.Point(266, 155);
             this.logradouroTextBox.Name = "logradouroTextBox";
-            this.logradouroTextBox.Size = new System.Drawing.Size(354, 20);
+            this.logradouroTextBox.Size = new System.Drawing.Size(338, 20);
             this.logradouroTextBox.TabIndex = 15;
             // 
             // emailTextBox
             // 
+            this.emailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.emailTextBox.Enabled = false;
             this.emailTextBox.Location = new System.Drawing.Point(90, 129);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(530, 20);
+            this.emailTextBox.Size = new System.Drawing.Size(514, 20);
             this.emailTextBox.TabIndex = 11;
             // 
             // celMaskedTextBox
             // 
+            this.celMaskedTextBox.Enabled = false;
             this.celMaskedTextBox.Location = new System.Drawing.Point(244, 103);
             this.celMaskedTextBox.Mask = "(99) 9 9999-9999";
             this.celMaskedTextBox.Name = "celMaskedTextBox";
             this.celMaskedTextBox.Size = new System.Drawing.Size(100, 20);
             this.celMaskedTextBox.TabIndex = 9;
+            this.celMaskedTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // telMaskedTextBox
             // 
+            this.telMaskedTextBox.Enabled = false;
             this.telMaskedTextBox.Location = new System.Drawing.Point(90, 103);
             this.telMaskedTextBox.Mask = "(99) 9999-9999";
             this.telMaskedTextBox.Name = "telMaskedTextBox";
             this.telMaskedTextBox.Size = new System.Drawing.Size(100, 20);
             this.telMaskedTextBox.TabIndex = 7;
+            this.telMaskedTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // dt_nascimentoDateTimePicker
             // 
+            this.dt_nascimentoDateTimePicker.Enabled = false;
             this.dt_nascimentoDateTimePicker.Location = new System.Drawing.Point(90, 77);
             this.dt_nascimentoDateTimePicker.Name = "dt_nascimentoDateTimePicker";
             this.dt_nascimentoDateTimePicker.Size = new System.Drawing.Size(254, 20);
@@ -363,8 +388,6 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // tipoComboBox
             // 
-            this.tipoComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tipoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.tipoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tipoComboBox.Enabled = false;
@@ -377,6 +400,7 @@ namespace PastelWlsySdP.Apresentacao
             // altSenhaCheckBox
             // 
             this.altSenhaCheckBox.AutoSize = true;
+            this.altSenhaCheckBox.Enabled = false;
             this.altSenhaCheckBox.Location = new System.Drawing.Point(327, 271);
             this.altSenhaCheckBox.Name = "altSenhaCheckBox";
             this.altSenhaCheckBox.Size = new System.Drawing.Size(88, 17);
@@ -412,7 +436,7 @@ namespace PastelWlsySdP.Apresentacao
             this.nomeTextBox.Enabled = false;
             this.nomeTextBox.Location = new System.Drawing.Point(90, 51);
             this.nomeTextBox.Name = "nomeTextBox";
-            this.nomeTextBox.Size = new System.Drawing.Size(530, 20);
+            this.nomeTextBox.Size = new System.Drawing.Size(514, 20);
             this.nomeTextBox.TabIndex = 3;
             // 
             // identificadorTextBox
@@ -430,6 +454,7 @@ namespace PastelWlsySdP.Apresentacao
             this.senhaTextBox.Name = "senhaTextBox";
             this.senhaTextBox.Size = new System.Drawing.Size(230, 20);
             this.senhaTextBox.TabIndex = 25;
+            this.senhaTextBox.UseSystemPasswordChar = true;
             // 
             // autenticacaoCheckBox
             // 
@@ -456,7 +481,7 @@ namespace PastelWlsySdP.Apresentacao
             // 
             this.editarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editarButton.Enabled = false;
-            this.editarButton.Location = new System.Drawing.Point(783, 191);
+            this.editarButton.Location = new System.Drawing.Point(767, 191);
             this.editarButton.Name = "editarButton";
             this.editarButton.Size = new System.Drawing.Size(64, 23);
             this.editarButton.TabIndex = 4;
@@ -467,7 +492,7 @@ namespace PastelWlsySdP.Apresentacao
             // imprimirButton
             // 
             this.imprimirButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imprimirButton.Location = new System.Drawing.Point(783, 290);
+            this.imprimirButton.Location = new System.Drawing.Point(767, 290);
             this.imprimirButton.Name = "imprimirButton";
             this.imprimirButton.Size = new System.Drawing.Size(64, 23);
             this.imprimirButton.TabIndex = 6;
@@ -478,7 +503,7 @@ namespace PastelWlsySdP.Apresentacao
             // novoButton
             // 
             this.novoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.novoButton.Location = new System.Drawing.Point(783, 162);
+            this.novoButton.Location = new System.Drawing.Point(767, 162);
             this.novoButton.Name = "novoButton";
             this.novoButton.Size = new System.Drawing.Size(64, 23);
             this.novoButton.TabIndex = 3;
@@ -489,7 +514,7 @@ namespace PastelWlsySdP.Apresentacao
             // localizarButton
             // 
             this.localizarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.localizarButton.Location = new System.Drawing.Point(783, 92);
+            this.localizarButton.Location = new System.Drawing.Point(767, 92);
             this.localizarButton.Name = "localizarButton";
             this.localizarButton.Size = new System.Drawing.Size(64, 64);
             this.localizarButton.TabIndex = 2;
@@ -502,7 +527,7 @@ namespace PastelWlsySdP.Apresentacao
             // 
             this.salvarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.salvarButton.Enabled = false;
-            this.salvarButton.Location = new System.Drawing.Point(783, 220);
+            this.salvarButton.Location = new System.Drawing.Point(767, 220);
             this.salvarButton.Name = "salvarButton";
             this.salvarButton.Size = new System.Drawing.Size(64, 64);
             this.salvarButton.TabIndex = 5;
@@ -526,12 +551,17 @@ namespace PastelWlsySdP.Apresentacao
             // 
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "Abrir Imagem";
+            this.openFileDialog.Filter = "Fotos JPG|*.jpg|Fotos JPEG|*.jpeg";
+            // 
             // FormCadUsuario
             // 
             this.AcceptButton = this.localizarButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 448);
+            this.ClientSize = new System.Drawing.Size(843, 448);
             this.Controls.Add(this.novoButton);
             this.Controls.Add(this.imprimirButton);
             this.Controls.Add(this.salvarButton);
@@ -541,6 +571,7 @@ namespace PastelWlsySdP.Apresentacao
             this.Controls.Add(this.usuariosGroupBox);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(859, 487);
             this.Name = "FormCadUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuários";
@@ -583,5 +614,6 @@ namespace PastelWlsySdP.Apresentacao
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.MaskedTextBox celMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox telMaskedTextBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

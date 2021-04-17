@@ -83,6 +83,7 @@
     <Compile Include="Dominio\ClassChavesWin_Dom.cs" />
     <Compile Include="Dominio\ClassConfigBD_Dom.cs" />
     <Compile Include="Dominio\ClassPastelWslyS_Dom.cs" />
+    <Compile Include="Dominio\ClassUsuarioTipo_Dom.cs" />
     <Compile Include="Dominio\ClassUsuario_Dom.cs" />
     <Compile Include="Persistencia\ClassCEP_Per.cs" />
     <Compile Include="Persistencia\ClassChavesWin_Per.cs" />

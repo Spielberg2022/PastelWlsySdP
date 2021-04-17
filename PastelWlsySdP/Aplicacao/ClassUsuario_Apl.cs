@@ -26,5 +26,21 @@ namespace PastelWlsySdP.Aplicacao
             erro = usuario_Per.erro;
             return usuario_Dom.Usuarios;
         }
+
+        public bool InserirAdmGeral(ClassUsuario_Dom usuar_Dom)
+        {
+            usuario_Dom = usuar_Dom;
+            usuario_Per.sqlConnection = sqlConnection;
+
+            if (!usuario_Per.InserirAdmGeral(usuario_Dom))
+            {
+                erro = usuario_Per.erro;
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
