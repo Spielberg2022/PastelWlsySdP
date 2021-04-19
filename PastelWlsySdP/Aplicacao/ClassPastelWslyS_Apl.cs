@@ -13,16 +13,15 @@ namespace PastelWlsySdP.Aplicacao
 {
     class ClassPastelWslyS_Apl
     {
-        public ClassPastelWslyS_Dom gestorWslyS_Dom = new ClassPastelWslyS_Dom();
-        public ClassPastelWslyS_Per gestorWslyS_Per = new ClassPastelWslyS_Per();
+        public ClassPastelWslyS_Per pastelWslyS_Per = new ClassPastelWslyS_Per();
         public SqlConnection sqlConnection = new SqlConnection();
         public string erro;
 
         public bool PrimeiroAcesso()
         {
-            gestorWslyS_Per.sqlConnection = sqlConnection;
+            pastelWslyS_Per.sqlConnection = sqlConnection;
 
-            if (gestorWslyS_Per.ContarUsuarios() > 0)
+            if (pastelWslyS_Per.ContarUsuarios() > 0)
             {
                 return false;
             }

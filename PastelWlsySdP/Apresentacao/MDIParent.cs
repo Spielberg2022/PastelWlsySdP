@@ -12,6 +12,7 @@ namespace PastelWlsySdP.Apresentacao
     public partial class MDIParent : Form
     {
         private int childFormNumber = 0;
+        public string telasUsuario;
 
         public MDIParent()
         {
@@ -115,6 +116,14 @@ namespace PastelWlsySdP.Apresentacao
         private void MDIParent_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MDIParent_Load(object sender, EventArgs e)
+        {
+            if(telasUsuario == "Todas")
+            {
+                usuáriosToolStripMenuItem.Visible = true;
+            }
         }
     }
 }

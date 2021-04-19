@@ -73,6 +73,12 @@
     <Compile Include="Apresentacao\FormLocalizarUsuario.designer.cs">
       <DependentUpon>FormLocalizarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\MDIParent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,7 @@
     <Compile Include="Persistencia\ClassConfigBD_Per.cs" />
     <Compile Include="Persistencia\ClassPastelWslyS_Per.cs" />
     <Compile Include="Persistencia\ClassUsuario_Per.cs" />
+    <Compile Include="Persistencia\Crypt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuariosDataSet.Designer.cs">
@@ -105,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\FormLocalizarUsuario.resx">
       <DependentUpon>FormLocalizarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\MDIParent.resx">
       <DependentUpon>MDIParent.cs</DependentUpon>

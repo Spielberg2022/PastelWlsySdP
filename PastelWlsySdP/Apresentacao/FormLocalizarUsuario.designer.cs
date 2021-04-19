@@ -40,17 +40,23 @@ namespace PastelWlsySdP.Apresentacao
             this.localizarButton = new System.Windows.Forms.Button();
             this.cancelarButton = new System.Windows.Forms.Button();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
+            this.identificadorTabPage = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.localizarTabControl.SuspendLayout();
             this.codigoTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.codigoDataGridView)).BeginInit();
             this.nomeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nomeDataGridView)).BeginInit();
+            this.identificadorTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // localizarTabControl
             // 
             this.localizarTabControl.Controls.Add(this.codigoTabPage);
             this.localizarTabControl.Controls.Add(this.nomeTabPage);
+            this.localizarTabControl.Controls.Add(this.identificadorTabPage);
             this.localizarTabControl.Location = new System.Drawing.Point(12, 12);
             this.localizarTabControl.Name = "localizarTabControl";
             this.localizarTabControl.SelectedIndex = 0;
@@ -114,7 +120,6 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // exibirButton
             // 
-            //this.exibirButton.Image = global::GestorSAAE.Properties.Resources.verifica__2_;
             this.exibirButton.Location = new System.Drawing.Point(483, 82);
             this.exibirButton.Name = "exibirButton";
             this.exibirButton.Size = new System.Drawing.Size(64, 64);
@@ -125,7 +130,6 @@ namespace PastelWlsySdP.Apresentacao
             // 
             // localizarButton
             // 
-            //this.localizarButton.Image = global::GestorSAAE.Properties.Resources.encontrar__2_;
             this.localizarButton.Location = new System.Drawing.Point(483, 12);
             this.localizarButton.Name = "localizarButton";
             this.localizarButton.Size = new System.Drawing.Size(64, 64);
@@ -148,6 +152,33 @@ namespace PastelWlsySdP.Apresentacao
             // sqlConnection
             // 
             this.sqlConnection.FireInfoMessageEventOnUserErrors = false;
+            // 
+            // identificadorTabPage
+            // 
+            this.identificadorTabPage.BackColor = System.Drawing.SystemColors.Control;
+            this.identificadorTabPage.Controls.Add(this.dataGridView1);
+            this.identificadorTabPage.Controls.Add(this.textBox1);
+            this.identificadorTabPage.Location = new System.Drawing.Point(4, 22);
+            this.identificadorTabPage.Name = "identificadorTabPage";
+            this.identificadorTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.identificadorTabPage.Size = new System.Drawing.Size(457, 138);
+            this.identificadorTabPage.TabIndex = 2;
+            this.identificadorTabPage.Text = "Identificador";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 29);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(445, 106);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(445, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // FormLocalizarUsuario
             // 
@@ -173,6 +204,9 @@ namespace PastelWlsySdP.Apresentacao
             this.nomeTabPage.ResumeLayout(false);
             this.nomeTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nomeDataGridView)).EndInit();
+            this.identificadorTabPage.ResumeLayout(false);
+            this.identificadorTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,5 +224,8 @@ namespace PastelWlsySdP.Apresentacao
         private System.Windows.Forms.TextBox nomeTextBox;
         private System.Windows.Forms.Button cancelarButton;
         public System.Data.SqlClient.SqlConnection sqlConnection;
+        private System.Windows.Forms.TabPage identificadorTabPage;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

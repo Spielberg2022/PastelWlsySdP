@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -23,15 +24,12 @@ namespace PastelWlsySdP.Apresentacao
         private ClassCEP_Apl codigoPostal = new ClassCEP_Apl();
         private ClassUsuario_Apl usuario_Apl = new ClassUsuario_Apl();
         private ClassUsuario_Dom usuario_Dom = new ClassUsuario_Dom();
+        Bitmap bmp;
+        byte[] foto;
 
         public FormCadUsuario()
         {
             InitializeComponent();
-        }
-
-        private void usuarioBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
         }
 
         private void FormCadUsuario_Load(object sender, EventArgs e)
@@ -50,11 +48,6 @@ namespace PastelWlsySdP.Apresentacao
             }
         }
 
-        private void usuarioBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-        }
-
         private void editarButton_Click(object sender, EventArgs e)
         {
             if(editarButton.Text == "&Editar")
@@ -66,8 +59,6 @@ namespace PastelWlsySdP.Apresentacao
                 salvarButton.Enabled = true;
                 nomeTextBox.Enabled = true;
                 identificadorTextBox.Enabled = true;
-                situacaoComboBox.Enabled = true;
-                autenticacaoCheckBox.Enabled = true;
                 if (altSenhaCheckBox.Checked)
                 {
                     senhaTextBox.Enabled = true;
@@ -86,70 +77,103 @@ namespace PastelWlsySdP.Apresentacao
                 salvarButton.Enabled = false;
                 nomeTextBox.Enabled = false;
                 identificadorTextBox.Enabled = false;
-                situacaoComboBox.Enabled = false;
-                autenticacaoCheckBox.Enabled = false;
                 altSenhaCheckBox.Checked = false;
                 senhaTextBox.Enabled = false;
             }
         }
 
-        private void imprimirButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void salvarButton_Click(object sender, EventArgs e)
         {
             usuario_Apl.sqlConnection = sqlConnection;
-            if(!primeiroAcesso)
+            if (!primeiroAcesso)
             {
                 PreencheDadosUsuario();
-                //Deixar essa opção para o final, depois de confirmado o salvamento
-                nomeTextBox.Enabled = false;
-                identificadorTextBox.Enabled = false;
-                senhaTextBox.Enabled = false;
-                situacaoComboBox.Enabled = false;
-                autenticacaoCheckBox.Enabled = false;
-                codigoLabel1.Text = "";
+                //acrescentar a validação do campo tipo quando for programada
+                if (usuario_Dom.Nome != "" && usuario_Dom.Identificador != "" && usuario_Dom.Senha != "")
+                {
+                    if (!usuario_Apl.InserirUsuario(usuario_Dom))
+                        MessageBox.Show("Problemas ao inserir usuário!\n" + usuario_Apl.erro,
+                            "Erro!",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    else
+                    {
+                        MessageBox.Show("Usuário inserido com sucesso!",
+                            "Informação:",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        TelaInicial();
+                    }
+                }
+                else
+                    MessageBox.Show("Os campos obrigatórios não foram preenchidos!",
+                            "Atenção!",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation);
             }
             else
             {
                 PreencheDadosUsuario();
-                if(!usuario_Apl.InserirAdmGeral(usuario_Dom))
+                if (!usuario_Apl.InserirAdmGeral(usuario_Dom))
                     MessageBox.Show("Problemas ao inserir usuário!\n" + usuario_Apl.erro,
                         "Erro!",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 else
+                {
                     MessageBox.Show("Usuário inserido com sucesso!",
                         "Informação:",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+                    
+                }
+                this.Hide();
             }
+        }
+
+        private void TelaInicial()
+        {
+            nomeTextBox.Enabled = false;
+            dt_nascimentoDateTimePicker.Enabled = false;
+            telMaskedTextBox.Enabled = false;
+            celMaskedTextBox.Enabled = false;
+            emailTextBox.Enabled = false;
+            cepMaskedTextBox.Enabled = false;
+            logradouroTextBox.Enabled = false;
+            bairroTextBox.Enabled = false;
+            cidadeTextBox.Enabled = false;
+            ufComboBox.Enabled = false;
+            identificadorTextBox.Enabled = false;
+            senhaTextBox.Enabled = false;
+            tipoComboBox.Enabled = false;
+
+            localizarButton.Enabled = true;
+            novoButton.Enabled = true;
+            editarButton.Enabled = true;
+            salvarButton.Enabled = false;
+            imprimirButton.Enabled = true;
         }
 
         private void PreencheDadosUsuario()
         {
             usuario_Dom = new ClassUsuario_Dom();
-            usuario_Dom.Nome = nomeTextBox.Text;
+            usuario_Dom.Nome = nomeTextBox.Text.Trim();
             if (dt_nascimentoDateTimePicker.Value.Date < DateTime.Today)
                 usuario_Dom.Dt_nascimento = dt_nascimentoDateTimePicker.Value.Date;
             else
                 usuario_Dom.Dt_nascimento = DateTime.MinValue;
-            this.Hide();
-            usuario_Dom.Tel = telMaskedTextBox.Text;
-            usuario_Dom.Cel = celMaskedTextBox.Text;
-            usuario_Dom.Email = emailTextBox.Text;
-            usuario_Dom.Cep = cepMaskedTextBox.Text;
-            usuario_Dom.Logradouro = logradouroTextBox.Text;
-            usuario_Dom.Bairro = bairroTextBox.Text;
-            usuario_Dom.Cidade = cidadeTextBox.Text;
-            usuario_Dom.Uf = ufComboBox.Text;
-            usuario_Dom.Identificador = identificadorTextBox.Text;
-            usuario_Dom.Senha = senhaTextBox.Text;
+            usuario_Dom.Tel = telMaskedTextBox.Text.Trim();
+            usuario_Dom.Cel = celMaskedTextBox.Text.Trim();
+            usuario_Dom.Email = emailTextBox.Text.Trim();
+            usuario_Dom.Cep = cepMaskedTextBox.Text.Trim();
+            usuario_Dom.Logradouro = logradouroTextBox.Text.Trim();
+            usuario_Dom.Bairro = bairroTextBox.Text.Trim();
+            usuario_Dom.Cidade = cidadeTextBox.Text.Trim();
+            usuario_Dom.Uf = ufComboBox.Text.Trim();
+            usuario_Dom.Identificador = identificadorTextBox.Text.Trim();
+            usuario_Dom.Senha = senhaTextBox.Text.Trim();
             //tipo
-            //situação
-            //foto
+            usuario_Dom.Foto = foto;
         }
 
         private void localizarButton_Click(object sender, EventArgs e)
@@ -184,8 +208,6 @@ namespace PastelWlsySdP.Apresentacao
                 identificadorTextBox.Clear();
                 senhaTextBox.Clear();
                 tipoComboBox.ResetText();
-                situacaoComboBox.Text = "";
-                autenticacaoCheckBox.Checked = false;
                 fotoPictureBox.Image = null;
 
                 nomeTextBox.Enabled = true;
@@ -202,7 +224,6 @@ namespace PastelWlsySdP.Apresentacao
                 senhaTextBox.Enabled = true;
                 altSenhaCheckBox.Enabled = false;
                 tipoComboBox.Enabled = true;
-                situacaoComboBox.Enabled = true;
                 nomeTextBox.Focus();
             }
             else
@@ -228,8 +249,6 @@ namespace PastelWlsySdP.Apresentacao
                 identificadorTextBox.Clear();
                 senhaTextBox.Clear();
                 tipoComboBox.ResetText();
-                situacaoComboBox.Text = "";
-                autenticacaoCheckBox.Checked = false;
                 fotoPictureBox.Image = null;
 
                 nomeTextBox.Enabled = false;
@@ -246,9 +265,7 @@ namespace PastelWlsySdP.Apresentacao
                 senhaTextBox.Enabled = false;
                 altSenhaCheckBox.Enabled = false;
                 tipoComboBox.Enabled = false;
-                situacaoComboBox.Enabled = false;
-            }
-            
+            } 
         }
 
         private void imprimirButton_Click_1(object sender, EventArgs e)
@@ -267,14 +284,18 @@ namespace PastelWlsySdP.Apresentacao
             ufComboBox.Text = codigoPostal.cep_Dom.Uf;
         }
 
-        private void LocalizarCEP()
-        {
-            
-        }
-
         private void fotoPictureBox_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog();
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string nome = openFileDialog.FileName;
+                bmp = new Bitmap(nome);
+                fotoPictureBox.Image = bmp;
+
+                MemoryStream memory = new MemoryStream();
+                bmp.Save(memory, ImageFormat.Jpeg);
+                foto = memory.ToArray();
+            }
         }
     }
 }

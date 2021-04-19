@@ -15,10 +15,9 @@ namespace PastelWlsySdP.Apresentacao
 
 		ClassChavesWin_Apl chavesWin_Apl = new ClassChavesWin_Apl();
 		ClassConfigBD_Apl configBD_Apl = new ClassConfigBD_Apl();
-		ClassPastelWslyS_Apl gestor_Apl = new ClassPastelWslyS_Apl();
+		ClassPastelWslyS_Apl pastelWslyS_Apl = new ClassPastelWslyS_Apl();
 		ClassChavesWin_Dom chavesWin_Dom = new ClassChavesWin_Dom();
         ClassConfigBD_Dom bd = new ClassConfigBD_Dom();
-		ClassPastelWslyS_Dom gestor_Dom = new ClassPastelWslyS_Dom();
         BindingSource relacionamento = new BindingSource();
         char[] pesquisa = { '\\' };
 		bool erro;
@@ -70,29 +69,25 @@ namespace PastelWlsySdP.Apresentacao
 
         private void okButton_Click()
         {
-			gestor_Apl.sqlConnection = connection;
+			pastelWslyS_Apl.sqlConnection = connection;
 
-			if(!gestor_Apl.PrimeiroAcesso())
+			if(!pastelWslyS_Apl.PrimeiroAcesso())
             {
-				//**********************Entrar com o usuário e dar apenas as permissões permitidas.
-
-				MDIParent mDIParent = new MDIParent();
-				mDIParent.sqlConnection = connection;
-				mDIParent.Show();
+				FormLogin login = new FormLogin();
+				login.sqlConnection = connection;
+				login.Show();
 				this.Hide();
 			}
 			else
             {
-				//**********************Cadastrar usuário Admin
-
 				FormCadUsuario cadUsuario = new FormCadUsuario();
 				cadUsuario.sqlConnection = connection;
 				cadUsuario.primeiroAcesso = true;
 				this.Hide();
 				cadUsuario.ShowDialog();
-				MDIParent mDIParent = new MDIParent();
-				mDIParent.sqlConnection = connection;
-				mDIParent.Show();
+				FormLogin login = new FormLogin();
+				login.sqlConnection = connection;
+				login.Show();
 			}
 		}
 

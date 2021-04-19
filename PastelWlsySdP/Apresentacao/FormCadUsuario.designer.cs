@@ -33,7 +33,6 @@ namespace PastelWlsySdP.Apresentacao
             System.Windows.Forms.Label nomeLabel;
             System.Windows.Forms.Label identificadorLabel;
             System.Windows.Forms.Label senhaLabel;
-            System.Windows.Forms.Label situacaoLabel;
             System.Windows.Forms.Label tipoLabel;
             System.Windows.Forms.Label dt_nascimentoLabel;
             System.Windows.Forms.Label telLabel;
@@ -45,6 +44,7 @@ namespace PastelWlsySdP.Apresentacao
             System.Windows.Forms.Label cepLabel;
             System.Windows.Forms.Label ufLabel;
             System.Windows.Forms.Label fotoLabel;
+            System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadUsuario));
             this.usuariosGroupBox = new System.Windows.Forms.GroupBox();
             this.fotoPictureBox = new System.Windows.Forms.PictureBox();
@@ -59,12 +59,10 @@ namespace PastelWlsySdP.Apresentacao
             this.dt_nascimentoDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tipoComboBox = new System.Windows.Forms.ComboBox();
             this.altSenhaCheckBox = new System.Windows.Forms.CheckBox();
-            this.situacaoComboBox = new System.Windows.Forms.ComboBox();
             this.codigoLabel1 = new System.Windows.Forms.Label();
             this.nomeTextBox = new System.Windows.Forms.TextBox();
             this.identificadorTextBox = new System.Windows.Forms.TextBox();
             this.senhaTextBox = new System.Windows.Forms.TextBox();
-            this.autenticacaoCheckBox = new System.Windows.Forms.CheckBox();
             this.loginLabel = new System.Windows.Forms.Label();
             this.editarButton = new System.Windows.Forms.Button();
             this.imprimirButton = new System.Windows.Forms.Button();
@@ -78,7 +76,6 @@ namespace PastelWlsySdP.Apresentacao
             nomeLabel = new System.Windows.Forms.Label();
             identificadorLabel = new System.Windows.Forms.Label();
             senhaLabel = new System.Windows.Forms.Label();
-            situacaoLabel = new System.Windows.Forms.Label();
             tipoLabel = new System.Windows.Forms.Label();
             dt_nascimentoLabel = new System.Windows.Forms.Label();
             telLabel = new System.Windows.Forms.Label();
@@ -90,6 +87,7 @@ namespace PastelWlsySdP.Apresentacao
             cepLabel = new System.Windows.Forms.Label();
             ufLabel = new System.Windows.Forms.Label();
             fotoLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             this.usuariosGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -107,6 +105,7 @@ namespace PastelWlsySdP.Apresentacao
             // nomeLabel
             // 
             nomeLabel.AutoSize = true;
+            nomeLabel.ForeColor = System.Drawing.Color.DarkRed;
             nomeLabel.Location = new System.Drawing.Point(12, 54);
             nomeLabel.Name = "nomeLabel";
             nomeLabel.Size = new System.Drawing.Size(38, 13);
@@ -116,7 +115,8 @@ namespace PastelWlsySdP.Apresentacao
             // identificadorLabel
             // 
             identificadorLabel.AutoSize = true;
-            identificadorLabel.Location = new System.Drawing.Point(12, 245);
+            identificadorLabel.ForeColor = System.Drawing.Color.DarkRed;
+            identificadorLabel.Location = new System.Drawing.Point(54, 251);
             identificadorLabel.Name = "identificadorLabel";
             identificadorLabel.Size = new System.Drawing.Size(68, 13);
             identificadorLabel.TabIndex = 22;
@@ -125,25 +125,18 @@ namespace PastelWlsySdP.Apresentacao
             // senhaLabel
             // 
             senhaLabel.AutoSize = true;
-            senhaLabel.Location = new System.Drawing.Point(12, 271);
+            senhaLabel.ForeColor = System.Drawing.Color.DarkRed;
+            senhaLabel.Location = new System.Drawing.Point(54, 277);
             senhaLabel.Name = "senhaLabel";
             senhaLabel.Size = new System.Drawing.Size(41, 13);
             senhaLabel.TabIndex = 24;
             senhaLabel.Text = "Senha:";
             // 
-            // situacaoLabel
-            // 
-            situacaoLabel.AutoSize = true;
-            situacaoLabel.Location = new System.Drawing.Point(12, 324);
-            situacaoLabel.Name = "situacaoLabel";
-            situacaoLabel.Size = new System.Drawing.Size(52, 13);
-            situacaoLabel.TabIndex = 29;
-            situacaoLabel.Text = "Situação:";
-            // 
             // tipoLabel
             // 
             tipoLabel.AutoSize = true;
-            tipoLabel.Location = new System.Drawing.Point(12, 297);
+            tipoLabel.ForeColor = System.Drawing.Color.DarkRed;
+            tipoLabel.Location = new System.Drawing.Point(54, 303);
             tipoLabel.Name = "tipoLabel";
             tipoLabel.Size = new System.Drawing.Size(31, 13);
             tipoLabel.TabIndex = 27;
@@ -245,6 +238,7 @@ namespace PastelWlsySdP.Apresentacao
             // 
             this.usuariosGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.usuariosGroupBox.Controls.Add(label1);
             this.usuariosGroupBox.Controls.Add(fotoLabel);
             this.usuariosGroupBox.Controls.Add(this.fotoPictureBox);
             this.usuariosGroupBox.Controls.Add(ufLabel);
@@ -268,8 +262,6 @@ namespace PastelWlsySdP.Apresentacao
             this.usuariosGroupBox.Controls.Add(tipoLabel);
             this.usuariosGroupBox.Controls.Add(this.tipoComboBox);
             this.usuariosGroupBox.Controls.Add(this.altSenhaCheckBox);
-            this.usuariosGroupBox.Controls.Add(situacaoLabel);
-            this.usuariosGroupBox.Controls.Add(this.situacaoComboBox);
             this.usuariosGroupBox.Controls.Add(codigoLabel);
             this.usuariosGroupBox.Controls.Add(this.codigoLabel1);
             this.usuariosGroupBox.Controls.Add(nomeLabel);
@@ -278,7 +270,6 @@ namespace PastelWlsySdP.Apresentacao
             this.usuariosGroupBox.Controls.Add(this.identificadorTextBox);
             this.usuariosGroupBox.Controls.Add(senhaLabel);
             this.usuariosGroupBox.Controls.Add(this.senhaTextBox);
-            this.usuariosGroupBox.Controls.Add(this.autenticacaoCheckBox);
             this.usuariosGroupBox.Location = new System.Drawing.Point(143, 79);
             this.usuariosGroupBox.Name = "usuariosGroupBox";
             this.usuariosGroupBox.Size = new System.Drawing.Size(618, 357);
@@ -392,7 +383,7 @@ namespace PastelWlsySdP.Apresentacao
             this.tipoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tipoComboBox.Enabled = false;
             this.tipoComboBox.FormattingEnabled = true;
-            this.tipoComboBox.Location = new System.Drawing.Point(90, 294);
+            this.tipoComboBox.Location = new System.Drawing.Point(132, 300);
             this.tipoComboBox.Name = "tipoComboBox";
             this.tipoComboBox.Size = new System.Drawing.Size(230, 21);
             this.tipoComboBox.TabIndex = 28;
@@ -401,26 +392,12 @@ namespace PastelWlsySdP.Apresentacao
             // 
             this.altSenhaCheckBox.AutoSize = true;
             this.altSenhaCheckBox.Enabled = false;
-            this.altSenhaCheckBox.Location = new System.Drawing.Point(327, 271);
+            this.altSenhaCheckBox.Location = new System.Drawing.Point(369, 277);
             this.altSenhaCheckBox.Name = "altSenhaCheckBox";
             this.altSenhaCheckBox.Size = new System.Drawing.Size(88, 17);
             this.altSenhaCheckBox.TabIndex = 26;
             this.altSenhaCheckBox.Text = "Alterar senha";
             this.altSenhaCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // situacaoComboBox
-            // 
-            this.situacaoComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.situacaoComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.situacaoComboBox.Enabled = false;
-            this.situacaoComboBox.FormattingEnabled = true;
-            this.situacaoComboBox.Items.AddRange(new object[] {
-            "Ativo",
-            "Cancelado"});
-            this.situacaoComboBox.Location = new System.Drawing.Point(90, 321);
-            this.situacaoComboBox.Name = "situacaoComboBox";
-            this.situacaoComboBox.Size = new System.Drawing.Size(230, 21);
-            this.situacaoComboBox.TabIndex = 30;
             // 
             // codigoLabel1
             // 
@@ -442,7 +419,7 @@ namespace PastelWlsySdP.Apresentacao
             // identificadorTextBox
             // 
             this.identificadorTextBox.Enabled = false;
-            this.identificadorTextBox.Location = new System.Drawing.Point(90, 242);
+            this.identificadorTextBox.Location = new System.Drawing.Point(132, 248);
             this.identificadorTextBox.Name = "identificadorTextBox";
             this.identificadorTextBox.Size = new System.Drawing.Size(230, 20);
             this.identificadorTextBox.TabIndex = 23;
@@ -450,21 +427,11 @@ namespace PastelWlsySdP.Apresentacao
             // senhaTextBox
             // 
             this.senhaTextBox.Enabled = false;
-            this.senhaTextBox.Location = new System.Drawing.Point(90, 268);
+            this.senhaTextBox.Location = new System.Drawing.Point(132, 274);
             this.senhaTextBox.Name = "senhaTextBox";
             this.senhaTextBox.Size = new System.Drawing.Size(230, 20);
             this.senhaTextBox.TabIndex = 25;
             this.senhaTextBox.UseSystemPasswordChar = true;
-            // 
-            // autenticacaoCheckBox
-            // 
-            this.autenticacaoCheckBox.Enabled = false;
-            this.autenticacaoCheckBox.Location = new System.Drawing.Point(327, 321);
-            this.autenticacaoCheckBox.Name = "autenticacaoCheckBox";
-            this.autenticacaoCheckBox.Size = new System.Drawing.Size(180, 24);
-            this.autenticacaoCheckBox.TabIndex = 31;
-            this.autenticacaoCheckBox.Text = "Exige autenticação de 2 fatores";
-            this.autenticacaoCheckBox.UseVisualStyleBackColor = true;
             // 
             // loginLabel
             // 
@@ -556,6 +523,16 @@ namespace PastelWlsySdP.Apresentacao
             this.openFileDialog.FileName = "Abrir Imagem";
             this.openFileDialog.Filter = "Fotos JPG|*.jpg|Fotos JPEG|*.jpeg";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = System.Drawing.Color.DarkRed;
+            label1.Location = new System.Drawing.Point(6, 336);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(298, 13);
+            label1.TabIndex = 34;
+            label1.Text = "* Os campos em vermelho são de preenchimento obrigatórios!";
+            // 
             // FormCadUsuario
             // 
             this.AcceptButton = this.localizarButton;
@@ -593,12 +570,10 @@ namespace PastelWlsySdP.Apresentacao
         private System.Windows.Forms.TextBox nomeTextBox;
         private System.Windows.Forms.TextBox identificadorTextBox;
         private System.Windows.Forms.TextBox senhaTextBox;
-        private System.Windows.Forms.CheckBox autenticacaoCheckBox;
         private System.Windows.Forms.Label loginLabel;
         private System.Windows.Forms.Button localizarButton;
         private System.Windows.Forms.Button editarButton;
         private System.Windows.Forms.Button salvarButton;
-        private System.Windows.Forms.ComboBox situacaoComboBox;
         private System.Windows.Forms.Button imprimirButton;
         private System.Windows.Forms.Button novoButton;
         private System.Windows.Forms.CheckBox altSenhaCheckBox;
