@@ -49,25 +49,24 @@ namespace PastelWlsySdP.Aplicacao
             usuario_Dom.Identificador = v1;
             usuario_Dom.Senha = v2;
 
-            if(!usuario_Per.Login(usuario_Dom))
-            {
-                
-                return false;
-            }
-            else
+            if(usuario_Per.Login(usuario_Dom))
             {
                 if (usuario_Per.TipoUsuario(usuario_Dom.Tipo))
                 {
                     telasUsuario = usuario_Per.telasUsuario;
+                    return true;
                 }
                 else
                 {
-
+                    erro = usuario_Per.erro;
+                    return false;
                 }
-                erro = usuario_Per.erro;
-                return true;
             }
-                //return true;
+            else
+            {
+                erro = usuario_Per.erro;
+                return false;
+            }
         }
 
         public bool InserirUsuario(ClassUsuario_Dom usuar_Dom)
@@ -82,6 +81,23 @@ namespace PastelWlsySdP.Aplicacao
             }
             else
                 return true;
+        }
+
+        public DataTable ListarTipos()
+        {
+            usuarioTipo_Dom = new ClassUsuarioTipo_Dom();
+            usuario_Per.sqlConnection = sqlConnection;
+
+            if (!usuario_Per.TipoUsuario())
+            {
+                erro = usuario_Per.erro;
+            }
+            else
+            {
+                usuarioTipo_Dom = usuario_Per.usuarioTipo_Dom;
+            }
+
+            return usuarioTipo_Dom.UsuarioTipos;
         }
     }
 }

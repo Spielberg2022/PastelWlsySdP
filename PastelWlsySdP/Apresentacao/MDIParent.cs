@@ -125,5 +125,11 @@ namespace PastelWlsySdP.Apresentacao
                 usuáriosToolStripMenuItem.Visible = true;
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox sobre = new AboutBox();
+            sobre.ShowDialog();
+        }
     }
 }

@@ -55,6 +55,12 @@
     <Compile Include="Aplicacao\ClassConfigBD_Apl.cs" />
     <Compile Include="Aplicacao\ClassPastelWslyS_Apl.cs" />
     <Compile Include="Aplicacao\ClassUsuario_Apl.cs" />
+    <Compile Include="Apresentacao\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\FormCadUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UsuariosDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Apresentacao\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\FormCadUsuario.resx">
       <DependentUpon>FormCadUsuario.cs</DependentUpon>
     </EmbeddedResource>

@@ -24,8 +24,9 @@ namespace PastelWlsySdP.Apresentacao
         private ClassCEP_Apl codigoPostal = new ClassCEP_Apl();
         private ClassUsuario_Apl usuario_Apl = new ClassUsuario_Apl();
         private ClassUsuario_Dom usuario_Dom = new ClassUsuario_Dom();
-        Bitmap bmp;
-        byte[] foto;
+        private Bitmap bmp;
+        private byte[] foto;
+        
 
         public FormCadUsuario()
         {
@@ -34,17 +35,29 @@ namespace PastelWlsySdP.Apresentacao
 
         private void FormCadUsuario_Load(object sender, EventArgs e)
         {
+            tipoComboBox.Enabled = true;
+            usuario_Apl.sqlConnection = sqlConnection;
+            tipoComboBox.Items.Clear();
+            tipoComboBox.DataSource = usuario_Apl.ListarTipos();
+            tipoComboBox.DisplayMember = "descricao";
+            tipoComboBox.ValueMember = "codigo";
+
             if (primeiroAcesso)
             {
                 loginLabel.Text = "Cadastro do Administrador GERAL";
                 nomeTextBox.Enabled = true;
                 identificadorTextBox.Enabled = true;
                 senhaTextBox.Enabled = true;
+                tipoComboBox.Enabled = false;
                 salvarButton.Enabled = true;
 
                 nomeTextBox.Text = "Administrador GERAL";
                 identificadorTextBox.Text = "oportunidades@smn.com.br";
                 senhaTextBox.Text = "teste123";
+            }
+            else
+            {
+                TelaInicial();
             }
         }
 
@@ -172,7 +185,7 @@ namespace PastelWlsySdP.Apresentacao
             usuario_Dom.Uf = ufComboBox.Text.Trim();
             usuario_Dom.Identificador = identificadorTextBox.Text.Trim();
             usuario_Dom.Senha = senhaTextBox.Text.Trim();
-            //tipo
+            usuario_Dom.Tipo = int.Parse(tipoComboBox.SelectedValue.ToString());
             usuario_Dom.Foto = foto;
         }
 

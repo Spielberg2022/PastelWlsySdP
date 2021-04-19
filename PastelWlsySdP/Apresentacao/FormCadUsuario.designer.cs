@@ -29,6 +29,7 @@ namespace PastelWlsySdP.Apresentacao
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label codigoLabel;
             System.Windows.Forms.Label nomeLabel;
             System.Windows.Forms.Label identificadorLabel;
@@ -72,6 +73,7 @@ namespace PastelWlsySdP.Apresentacao
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.sqlConnection = new System.Data.SqlClient.SqlConnection();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.bstipo = new System.Windows.Forms.BindingSource(this.components);
             codigoLabel = new System.Windows.Forms.Label();
             nomeLabel = new System.Windows.Forms.Label();
             identificadorLabel = new System.Windows.Forms.Label();
@@ -91,6 +93,7 @@ namespace PastelWlsySdP.Apresentacao
             this.usuariosGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bstipo)).BeginInit();
             this.SuspendLayout();
             // 
             // codigoLabel
@@ -233,6 +236,16 @@ namespace PastelWlsySdP.Apresentacao
             fotoLabel.Size = new System.Drawing.Size(31, 13);
             fotoLabel.TabIndex = 32;
             fotoLabel.Text = "Foto:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.ForeColor = System.Drawing.Color.DarkRed;
+            label1.Location = new System.Drawing.Point(6, 336);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(298, 13);
+            label1.TabIndex = 34;
+            label1.Text = "* Os campos em vermelho são de preenchimento obrigatórios!";
             // 
             // usuariosGroupBox
             // 
@@ -523,16 +536,6 @@ namespace PastelWlsySdP.Apresentacao
             this.openFileDialog.FileName = "Abrir Imagem";
             this.openFileDialog.Filter = "Fotos JPG|*.jpg|Fotos JPEG|*.jpeg";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.ForeColor = System.Drawing.Color.DarkRed;
-            label1.Location = new System.Drawing.Point(6, 336);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(298, 13);
-            label1.TabIndex = 34;
-            label1.Text = "* Os campos em vermelho são de preenchimento obrigatórios!";
-            // 
             // FormCadUsuario
             // 
             this.AcceptButton = this.localizarButton;
@@ -557,6 +560,7 @@ namespace PastelWlsySdP.Apresentacao
             this.usuariosGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fotoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bstipo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,5 +594,6 @@ namespace PastelWlsySdP.Apresentacao
         private System.Windows.Forms.MaskedTextBox celMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox telMaskedTextBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.BindingSource bstipo;
     }
 }
