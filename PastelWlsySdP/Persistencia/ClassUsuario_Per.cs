@@ -25,37 +25,6 @@ namespace PastelWlsySdP.Persistencia
         public string telasUsuario;
         public string erro;
 
-        public DataTable Localizar(ClassUsuario_Dom usuar_Dom)
-        {
-            //DataTable usuarios = new DataTable();
-            //sqlCommand = new SqlCommand();
-            //sqlDataAdapter = new SqlDataAdapter();
-            //try
-            //{
-            //    sqlCommand.Connection = sqlConnection;
-            //    sqlCommand.Parameters.Add("@codigo", SqlDbType.Int);
-            //    sqlCommand.Parameters["@codigo"].Value = usuar_Dom.Codigo;
-            //    sqlDataAdapter.SelectCommand = sqlCommand;
-
-            //    sqlCommand.CommandText = "SELECT * FROM Usuarios where codigo = @codigo";
-            //    sqlConnection.Open();
-            //    sqlDataAdapter.SelectCommand.ExecuteNonQuery();
-
-            //    sqlDataAdapter.Fill(usuarios);
-            //    usuar_Dom.Usuarios = usuarios;
-            //}
-            //catch (Exception error)
-            //{
-            //    erro = error.Message;
-            //}
-            //finally
-            //{
-            //    sqlConnection.Close();
-            //}
-
-            return usuarios;
-        }
-
         public bool Localizar(string dado, string varLoc)
         {
             DataTable usuarios = new DataTable();
@@ -264,24 +233,6 @@ namespace PastelWlsySdP.Persistencia
 
                 sqlDataAdapter.Fill(usuarios);
 
-                //Habilitar quando for preciso
-
-                //usuario_Dom.Codigo = int.Parse(usuarios.Rows[0]["codigo"].ToString());
-                //usuario_Dom.Nome = usuarios.Rows[0]["nome"].ToString();
-                //if (usuarios.Rows[0]["dt_nascimento"].ToString() == null || usuarios.Rows[0]["dt_nascimento"].ToString() == "")
-                //    usuario_Dom.Dt_nascimento = DateTime.MinValue;
-                //else
-                //    usuario_Dom.Dt_nascimento = DateTime.Parse(usuarios.Rows[0]["dt_nascimento"].ToString());
-                //usuario_Dom.Tel = usuarios.Rows[0]["tel"].ToString();
-                //usuario_Dom.Cel = usuarios.Rows[0]["cel"].ToString();
-                //usuario_Dom.Email = usuarios.Rows[0]["email"].ToString();
-                //usuario_Dom.Cep = usuarios.Rows[0]["cep"].ToString();
-                //usuario_Dom.Logradouro = usuarios.Rows[0]["logradouro"].ToString();
-                //usuario_Dom.Bairro = usuarios.Rows[0]["bairro"].ToString();
-                //usuario_Dom.Cidade = usuarios.Rows[0]["cidade"].ToString();
-                //usuario_Dom.Uf = usuarios.Rows[0]["uf"].ToString();
-                //usuario_Dom.Identificador = usuarios.Rows[0]["identificador"].ToString();
-                //usuario_Dom.Senha = usuarios.Rows[0]["senha"].ToString();
                 usuario_Dom.Tipo = int.Parse(usuarios.Rows[0]["tipo"].ToString());
                 return true;
             }
