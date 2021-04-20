@@ -20,14 +20,14 @@ namespace PastelWlsySdP.Aplicacao
         public string erro;
         public string telasUsuario;
 
-        public DataTable LocCod(int codigo)
-        {
-            usuario_Dom.Codigo = codigo;
-            usuario_Per.sqlConnection = sqlConnection;
-            usuario_Dom.Usuarios = usuario_Per.Localizar(usuario_Dom);
-            erro = usuario_Per.erro;
-            return usuario_Dom.Usuarios;
-        }
+        //public DataTable LocCod(int codigo)
+        //{
+        //    usuario_Dom.Codigo = codigo;
+        //    usuario_Per.sqlConnection = sqlConnection;
+        //    usuario_Dom.Usuarios = usuario_Per.Localizar(usuario_Dom);
+        //    erro = usuario_Per.erro;
+        //    return usuario_Dom.Usuarios;
+        //}
 
         public DataTable Localizar(string dado, string varLoc)
         {

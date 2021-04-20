@@ -51,6 +51,11 @@ namespace PastelWlsySdP.Apresentacao
                 tipoComboBox.Enabled = false;
                 salvarButton.Enabled = true;
 
+                localizarButton.Enabled = false;
+                editarButton.Enabled = false;
+                imprimirButton.Enabled = false;
+                novoButton.Enabled = false;
+
                 nomeTextBox.Text = "Administrador GERAL";
                 identificadorTextBox.Text = "oportunidades@smn.com.br";
                 senhaTextBox.Text = "teste123";
