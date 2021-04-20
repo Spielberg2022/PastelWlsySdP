@@ -306,8 +306,38 @@ namespace PastelWlsySdP.Apresentacao
             // ufComboBox
             // 
             this.ufComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ufComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ufComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ufComboBox.Enabled = false;
             this.ufComboBox.FormattingEnabled = true;
+            this.ufComboBox.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AM",
+            "AP",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MG",
+            "MS",
+            "MT",
+            "PA",
+            "PB",
+            "PE",
+            "PI",
+            "PR",
+            "RJ",
+            "RN",
+            "RO",
+            "RR",
+            "RS",
+            "SC",
+            "SE",
+            "SP",
+            "TO"});
             this.ufComboBox.Location = new System.Drawing.Point(548, 180);
             this.ufComboBox.Name = "ufComboBox";
             this.ufComboBox.Size = new System.Drawing.Size(56, 21);

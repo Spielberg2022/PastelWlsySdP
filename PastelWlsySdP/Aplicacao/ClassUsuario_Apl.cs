@@ -29,6 +29,23 @@ namespace PastelWlsySdP.Aplicacao
             return usuario_Dom.Usuarios;
         }
 
+        public DataTable Localizar(string dado, string varLoc)
+        {
+            usuario_Dom = new ClassUsuario_Dom();
+            usuario_Per.sqlConnection = sqlConnection;
+
+            if (!usuario_Per.Localizar(dado, varLoc))
+            {
+                erro = usuario_Per.erro;
+            }
+            else
+            {
+                usuario_Dom.Usuarios = usuario_Per.usuario_Dom.Usuarios;
+            }
+
+            return usuario_Dom.Usuarios;
+        }
+
         public bool InserirAdmGeral(ClassUsuario_Dom usuar_Dom)
         {
             usuario_Dom = usuar_Dom;
@@ -42,6 +59,8 @@ namespace PastelWlsySdP.Aplicacao
             else
                 return true;
         }
+
+        
 
         public bool Login(string v1, string v2)
         {

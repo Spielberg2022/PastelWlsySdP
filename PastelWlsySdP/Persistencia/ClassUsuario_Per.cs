@@ -27,33 +27,85 @@ namespace PastelWlsySdP.Persistencia
 
         public DataTable Localizar(ClassUsuario_Dom usuar_Dom)
         {
+            //DataTable usuarios = new DataTable();
+            //sqlCommand = new SqlCommand();
+            //sqlDataAdapter = new SqlDataAdapter();
+            //try
+            //{
+            //    sqlCommand.Connection = sqlConnection;
+            //    sqlCommand.Parameters.Add("@codigo", SqlDbType.Int);
+            //    sqlCommand.Parameters["@codigo"].Value = usuar_Dom.Codigo;
+            //    sqlDataAdapter.SelectCommand = sqlCommand;
+
+            //    sqlCommand.CommandText = "SELECT * FROM Usuarios where codigo = @codigo";
+            //    sqlConnection.Open();
+            //    sqlDataAdapter.SelectCommand.ExecuteNonQuery();
+
+            //    sqlDataAdapter.Fill(usuarios);
+            //    usuar_Dom.Usuarios = usuarios;
+            //}
+            //catch (Exception error)
+            //{
+            //    erro = error.Message;
+            //}
+            //finally
+            //{
+            //    sqlConnection.Close();
+            //}
+
+            return usuarios;
+        }
+
+        public bool Localizar(string dado, string varLoc)
+        {
             DataTable usuarios = new DataTable();
+            usuario_Dom = new ClassUsuario_Dom();
+            usuario_Dom.Usuarios = new DataTable();
             sqlCommand = new SqlCommand();
             sqlDataAdapter = new SqlDataAdapter();
             try
             {
                 sqlCommand.Connection = sqlConnection;
-                sqlCommand.Parameters.Add("@codigo", SqlDbType.Int);
-                sqlCommand.Parameters["@codigo"].Value = usuar_Dom.Codigo;
-                sqlDataAdapter.SelectCommand = sqlCommand;
 
-                sqlCommand.CommandText = "SELECT * FROM Usuarios where codigo = @codigo";
+                switch (varLoc)
+                {
+                    case "codigo":
+                        sqlCommand.Parameters.Add("@codigo", SqlDbType.Int);
+                        sqlCommand.Parameters["@codigo"].Value = int.Parse(dado);
+                        sqlCommand.CommandText = "SELECT * FROM Usuarios where codigo = @codigo";
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        break;
+                    case "nome":                        
+                        sqlCommand.CommandText = "SELECT * FROM Usuarios where nome like '%" + dado + "%'";
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        break;
+                    case "identificador":
+                        sqlCommand.Parameters.Add("@identificador", SqlDbType.VarChar);
+                        sqlCommand.Parameters["@identificador"].Value = dado;
+                        sqlCommand.CommandText = "SELECT * FROM Usuarios where identificador = @identificador";
+                        sqlDataAdapter.SelectCommand = sqlCommand;
+                        break;
+                    default:
+                        break;
+                }
+
                 sqlConnection.Open();
                 sqlDataAdapter.SelectCommand.ExecuteNonQuery();
 
                 sqlDataAdapter.Fill(usuarios);
-                usuar_Dom.Usuarios = usuarios;
+                usuario_Dom.Usuarios = usuarios;
+
+                return true;
             }
             catch (Exception error)
             {
                 erro = error.Message;
+                return false;
             }
             finally
             {
                 sqlConnection.Close();
             }
-
-            return usuarios;
         }
 
         public bool TipoUsuario(int tipo)

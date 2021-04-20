@@ -70,7 +70,17 @@ namespace PastelWlsySdP.Apresentacao
                 imprimirButton.Enabled = false;
                 novoButton.Enabled = false;
                 salvarButton.Enabled = true;
+
                 nomeTextBox.Enabled = true;
+                dt_nascimentoDateTimePicker.Enabled = true;
+                telMaskedTextBox.Enabled = true;
+                celMaskedTextBox.Enabled = true;
+                emailTextBox.Enabled = true;
+                cepMaskedTextBox.Enabled = true;
+                logradouroTextBox.Enabled = true;
+                bairroTextBox.Enabled = true;
+                cidadeTextBox.Enabled = true;
+                ufComboBox.Enabled = true;
                 identificadorTextBox.Enabled = true;
                 if (altSenhaCheckBox.Checked)
                 {
@@ -78,8 +88,7 @@ namespace PastelWlsySdP.Apresentacao
                     senhaTextBox.Clear();
                     senhaTextBox.Focus();
                 }
-                else
-                    nomeTextBox.Focus();               
+                tipoComboBox.Enabled = true;              
             }
             else
             {
@@ -88,11 +97,24 @@ namespace PastelWlsySdP.Apresentacao
                 imprimirButton.Enabled = true;
                 novoButton.Enabled = true;
                 salvarButton.Enabled = false;
+
                 nomeTextBox.Enabled = false;
+                dt_nascimentoDateTimePicker.Enabled = false;
+                telMaskedTextBox.Enabled = false;
+                celMaskedTextBox.Enabled = false;
+                emailTextBox.Enabled = false;
+                cepMaskedTextBox.Enabled = false;
+                logradouroTextBox.Enabled = false;
+                bairroTextBox.Enabled = false;
+                cidadeTextBox.Enabled = false;
+                ufComboBox.Enabled = false;
                 identificadorTextBox.Enabled = false;
                 altSenhaCheckBox.Checked = false;
-                senhaTextBox.Enabled = false;
+                if (!altSenhaCheckBox.Checked)
+                    senhaTextBox.Enabled = false;
+                tipoComboBox.Enabled = true;
             }
+            nomeTextBox.Focus();
         }
 
         private void salvarButton_Click(object sender, EventArgs e)
@@ -101,28 +123,38 @@ namespace PastelWlsySdP.Apresentacao
             if (!primeiroAcesso)
             {
                 PreencheDadosUsuario();
-                //acrescentar a validação do campo tipo quando for programada
-                if (usuario_Dom.Nome != "" && usuario_Dom.Identificador != "" && usuario_Dom.Senha != "")
+                
+                if(tipoComboBox.SelectedValue.ToString() != "")
                 {
-                    if (!usuario_Apl.InserirUsuario(usuario_Dom))
-                        MessageBox.Show("Problemas ao inserir usuário!\n" + usuario_Apl.erro,
-                            "Erro!",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    else
+                    usuario_Dom.Tipo = int.Parse(tipoComboBox.SelectedValue.ToString());
+                    if (usuario_Dom.Nome != "" && usuario_Dom.Identificador != "" && usuario_Dom.Senha != "")
                     {
-                        MessageBox.Show("Usuário inserido com sucesso!",
-                            "Informação:",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-                        TelaInicial();
+                        if (!usuario_Apl.InserirUsuario(usuario_Dom))
+                            MessageBox.Show("Problemas ao inserir usuário!\n" + usuario_Apl.erro,
+                                "Erro!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show("Usuário inserido com sucesso!",
+                                "Informação:",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            TelaInicial();
+                        }
                     }
+                    else
+                        MessageBox.Show("Os campos obrigatórios não foram preenchidos!",
+                                "Atenção!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
                 }
                 else
-                    MessageBox.Show("Os campos obrigatórios não foram preenchidos!",
-                            "Atenção!",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Os tipos de usuário não estão cadastrados!",
+                                "Atenção!",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+
             }
             else
             {
@@ -162,7 +194,7 @@ namespace PastelWlsySdP.Apresentacao
 
             localizarButton.Enabled = true;
             novoButton.Enabled = true;
-            editarButton.Enabled = true;
+            editarButton.Enabled = false;
             salvarButton.Enabled = false;
             imprimirButton.Enabled = true;
         }
@@ -185,15 +217,55 @@ namespace PastelWlsySdP.Apresentacao
             usuario_Dom.Uf = ufComboBox.Text.Trim();
             usuario_Dom.Identificador = identificadorTextBox.Text.Trim();
             usuario_Dom.Senha = senhaTextBox.Text.Trim();
-            usuario_Dom.Tipo = int.Parse(tipoComboBox.SelectedValue.ToString());
+            
             usuario_Dom.Foto = foto;
         }
 
         private void localizarButton_Click(object sender, EventArgs e)
         {
-            FormLocalizarUsuario formLocalizar = new FormLocalizarUsuario();
-            formLocalizar.sqlConnection = sqlConnection;
-            formLocalizar.ShowDialog();
+            try
+            {
+                FormLocalizarUsuario formLocalizar = new FormLocalizarUsuario();
+                formLocalizar.sqlConnection = sqlConnection;
+                formLocalizar.ShowDialog();
+                editarButton.Enabled = true;
+                codigoLabel1.Text = formLocalizar.selecao.Rows[0][0].ToString();
+                nomeTextBox.Text = formLocalizar.selecao.Rows[0][1].ToString();
+                identificadorTextBox.Text = formLocalizar.selecao.Rows[0][2].ToString();
+                senhaTextBox.Text = formLocalizar.selecao.Rows[0][3].ToString();
+
+                //usuario_Dom.Tipo = int.Parse(nomeDataGridView.CurrentRow.Cells[4].Value.ToString());
+                if (formLocalizar.selecao.Rows[0][5].ToString() == "01/01/0001 00:00:00" || formLocalizar.selecao.Rows[0][5].ToString() == "")
+                    dt_nascimentoDateTimePicker.Value = DateTime.Parse("01/01/1900 00:00:00");
+                else
+                    dt_nascimentoDateTimePicker.Value = DateTime.Parse(formLocalizar.selecao.Rows[0][5].ToString());
+                telMaskedTextBox.Text = formLocalizar.selecao.Rows[0][6].ToString();
+                celMaskedTextBox.Text = formLocalizar.selecao.Rows[0][7].ToString();
+                emailTextBox.Text = formLocalizar.selecao.Rows[0][8].ToString();
+                logradouroTextBox.Text = formLocalizar.selecao.Rows[0][9].ToString();
+                bairroTextBox.Text = formLocalizar.selecao.Rows[0][10].ToString();
+                cidadeTextBox.Text = formLocalizar.selecao.Rows[0][11].ToString();
+                ufComboBox.Text = formLocalizar.selecao.Rows[0][12].ToString();
+                cepMaskedTextBox.Text = formLocalizar.selecao.Rows[0][13].ToString();
+
+                byte[] imagem;
+                if (formLocalizar.selecao.Rows[0][14].ToString() != "")
+                {
+                    imagem = (byte[])(formLocalizar.selecao.Rows[0][14]);
+                    MemoryStream memory = new MemoryStream(imagem);
+                    fotoPictureBox.Image = Image.FromStream(memory);
+                }
+                else
+                    fotoPictureBox.Image = null;
+            }
+            catch(Exception error)
+            {
+
+            }
+            finally
+            {
+
+            }
         }
 
         private void novoButton_Click(object sender, EventArgs e)
@@ -235,7 +307,7 @@ namespace PastelWlsySdP.Apresentacao
                 ufComboBox.Enabled = true;
                 identificadorTextBox.Enabled = true;
                 senhaTextBox.Enabled = true;
-                altSenhaCheckBox.Enabled = false;
+                altSenhaCheckBox.Enabled = true;
                 tipoComboBox.Enabled = true;
                 nomeTextBox.Focus();
             }
@@ -276,7 +348,7 @@ namespace PastelWlsySdP.Apresentacao
                 ufComboBox.Enabled = false;
                 identificadorTextBox.Enabled = false;
                 senhaTextBox.Enabled = false;
-                altSenhaCheckBox.Enabled = false;
+                altSenhaCheckBox.Enabled = true;
                 tipoComboBox.Enabled = false;
             } 
         }
@@ -291,6 +363,7 @@ namespace PastelWlsySdP.Apresentacao
         {
             codigoPostal = new ClassCEP_Apl();
             codigoPostal.BuscaCEP(cepMaskedTextBox.Text);
+            codigoPostal.cep_Dom.Cep = celMaskedTextBox.Text;
             logradouroTextBox.Text = codigoPostal.cep_Dom.Logradouro;
             bairroTextBox.Text = codigoPostal.cep_Dom.Bairro;
             cidadeTextBox.Text = codigoPostal.cep_Dom.Localidade;

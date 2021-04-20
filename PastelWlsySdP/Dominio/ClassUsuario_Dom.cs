@@ -27,6 +27,7 @@ namespace PastelWlsySdP.Dominio
         private string cep;
         private byte[] foto;
         private DataTable usuarios;
+        private Image fotoImage;
 
         public DataTable Usuarios { get => usuarios; set => usuarios = value; }
         public int Codigo { get => codigo; set => codigo = value; }
@@ -44,5 +45,6 @@ namespace PastelWlsySdP.Dominio
         public string Uf { get => uf; set => uf = value; }
         public string Cep { get => cep; set => cep = value; }
         public byte[] Foto { get => foto; set => foto = value; }
+        public Image FotoImage { get => fotoImage; set => fotoImage = value; }
     }
 }
